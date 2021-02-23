@@ -41,9 +41,11 @@ public class ManageBirds : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            birds[i].transform.Rotate(0, rotationSpeeds[i] * Time.deltaTime, 0);
-            birds[i].transform.Translate(0,0,speeds[i]*Time.deltaTime);
-
+            if (birds[i] != null)
+            {
+                birds[i].transform.Rotate(0, rotationSpeeds[i] * Time.deltaTime, 0);
+                birds[i].transform.Translate(0, 0, speeds[i] * Time.deltaTime);
+            }
         }
     }
 }
