@@ -24,6 +24,8 @@ public class AnimateBird : MonoBehaviour
 
     float LFO;
 
+    public Color color = Color.cyan;
+
 
     void Start()
     {
@@ -48,6 +50,13 @@ public class AnimateBird : MonoBehaviour
 
         neck.localEulerAngles = new Vector3(neckRotation, 0 , 0);
         body.localPosition = new Vector3(0, bodyPosition, 0);
+
+        MeshRenderer[] meshRenderers = this.GetComponentsInChildren<MeshRenderer>();
+
+        foreach (MeshRenderer r in meshRenderers)
+        {
+            r.material.color = color;
+        }
 
     }
 }
