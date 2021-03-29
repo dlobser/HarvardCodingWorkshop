@@ -15,6 +15,7 @@ public class Interactable : MonoBehaviour
     public float minDistance = 1e6f;
 
     public bool debug;
+    public bool triggerOnHoverEnd;
 
     public float clicked { get; set; }
     public string type;
@@ -89,7 +90,13 @@ public class Interactable : MonoBehaviour
         if (debug)
             Debug.Log(this.gameObject.name + " hover");
         if (hoverCounter < hoverTime)
+        {
             hoverCounter += Time.deltaTime;
+        }
+        else if (triggerOnHoverEnd)
+        {
+            HandleTrigger();
+        }
     }
 
     public virtual void HandleExit(){

@@ -63,7 +63,8 @@ public class RaycastInteraction : MonoBehaviour {
                 {
                     Interactable[] interactables = hitInfo.transform.gameObject.GetComponents<Interactable>();
                     foreach (Interactable i in interactables)
-                        i.Ping(this, click, type);
+                        if(i.type == type)
+                            i.Ping(this, click, type);
                 }
 
                 raycastHit = hitInfo;

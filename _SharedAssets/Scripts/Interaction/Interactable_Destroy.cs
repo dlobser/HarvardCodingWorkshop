@@ -9,10 +9,18 @@ public class Interactable_Destroy : Interactable
 
     public override void HandleHover()
     {
-        GameObject e = Instantiate(explosion);
-        e.transform.position = this.transform.position;
+        HandleTrigger();
+    }
+
+    public override void HandleTrigger()
+    {
+        if (explosion != null)
+        {
+            GameObject e = Instantiate(explosion);
+            e.transform.position = this.transform.position;
+        }
         Destroy(this.gameObject);
     }
 
-	
+
 }

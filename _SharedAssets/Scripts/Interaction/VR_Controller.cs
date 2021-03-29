@@ -3,39 +3,59 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-public class VR_Controller : MonoBehaviour {
 
-    public bool rightHand;
-    public bool debug;
+public class VR_Controller : MonoBehaviour
+{
+
+    static List<InputDevice> devices = new List<InputDevice>();
+    public enum Controller { LEFT, RIGHT };
+    public Controller controller = Controller.LEFT;
     Vector3 prev;
     public float speed { get; set; }
+    public TextMesh debugText;
 
-    void Start () {
-		string[] names = Input.GetJoystickNames();
-        foreach (string n in names) {
-            if(debug)
-                Debug.Log(n);
+    private void Start()
+    {
+        if (debugText != null)
+        {
+            var inputDevices = new List<UnityEngine.XR.InputDevice>();
+            InputDevices.GetDevices(inputDevices);
+            string s = "";
+            foreach (var device in inputDevices)
+            {
+                s += string.Format("Device found with name '{0}' and role '{1}'", device.name, device.role.ToString());
+                s += "\n";
+            }
+            debugText.text = s;
         }
     }
+    void Update()
+    {
+        switch (controller)
+        {
+            case Controller.LEFT:
+                var desiredCharacteristics = InputDeviceCharacteristics.HeldInHand | InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller;
+                InputDevices.GetDevicesWithCharacteristics(desiredCharacteristics, devices);
 
-    void Update () {
-        
-        #pragma warning disable 0618
-
-        if (rightHand) {
-            this.transform.position = InputTracking.GetLocalPosition(XRNode.RightHand);
-            this.transform.rotation = InputTracking.GetLocalRotation(XRNode.RightHand);
+                break;
+            case Controller.RIGHT:
+                var desiredCharacteristics2 = InputDeviceCharacteristics.HeldInHand | InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
+                InputDevices.GetDevicesWithCharacteristics(desiredCharacteristics2, devices);
+                break;
         }
-        else {
-            this.transform.position = InputTracking.GetLocalPosition(XRNode.LeftHand);
-            this.transform.rotation = InputTracking.GetLocalRotation(XRNode.LeftHand);
-        }
 
-        #pragma warning restore 0618
+        if (devices.Count > 0)
+        {
+            InputDevice device = devices[0];
+            Vector3 position;
+            if (device.TryGetFeatureValue(CommonUsages.devicePosition, out position))
+                this.transform.localPosition = position;
+            Quaternion rotation;
+            if (device.TryGetFeatureValue(CommonUsages.deviceRotation, out rotation))
+                this.transform.localRotation = rotation;
+        }
 
         speed = Mathf.Lerp(speed, Vector3.Distance(prev, this.transform.position), .6f);
         prev = this.transform.position;
     }
-   
-
 }
