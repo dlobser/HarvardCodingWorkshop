@@ -1,0 +1,1 @@
+﻿Move InputManager.asset to your ProjectSettings folder - overwriting the existing one
