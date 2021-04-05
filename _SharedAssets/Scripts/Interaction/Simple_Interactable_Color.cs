@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
+
+namespace ON{
 
 public class Simple_Interactable_Color : Simple_Interactable
 {
@@ -24,4 +26,7 @@ public class Simple_Interactable_Color : Simple_Interactable
         
         raycastHit = false;
 	}
+}
+
+
 }

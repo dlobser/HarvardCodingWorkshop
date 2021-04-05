@@ -1,7 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+namespace ON{
 
 public class SwitchScene : MonoBehaviour
 {
@@ -27,4 +29,7 @@ public class SwitchScene : MonoBehaviour
             SceneManager.LoadScene(whichScene);
         }
     }
+}
+
+
 }

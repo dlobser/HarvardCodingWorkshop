@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.EventSystems;
+
+namespace ON{
 
 public class EventInteractable : MonoBehaviour, IPointerDownHandler, IPointerClickHandler,
     IPointerUpHandler, IPointerExitHandler, IPointerEnterHandler,
@@ -44,4 +46,7 @@ public class EventInteractable : MonoBehaviour, IPointerDownHandler, IPointerCli
     {
         Debug.Log("Mouse Up");
     }
+}
+
+
 }

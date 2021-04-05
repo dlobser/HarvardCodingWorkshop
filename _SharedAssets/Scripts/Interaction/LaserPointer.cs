@@ -1,6 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+namespace ON{
 
 //Example Usage
 //Make a cube, move it to 0,0,.5 - scale it to .2,.2,1
@@ -49,4 +51,7 @@ public class LaserPointer : MonoBehaviour {
             }
         }
     }
+}
+
+
 }

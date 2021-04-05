@@ -1,4 +1,6 @@
-﻿
+
+namespace ON{
+
 using UnityEngine;
 
 public class Simple_Raycaster : MonoBehaviour
@@ -15,6 +17,14 @@ public class Simple_Raycaster : MonoBehaviour
             {
                 hitInfo.transform.gameObject.GetComponent<Simple_Interactable>().OnRaycastHit();
             }
+
+            if (hitInfo.transform.gameObject.GetComponent<MeshRenderer>() != null)
+            {
+                hitInfo.transform.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+            }
         }
     }
+}
+
+
 }

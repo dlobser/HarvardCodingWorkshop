@@ -1,6 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+namespace ON{
 
 public class RaycastInteraction : MonoBehaviour {
     
@@ -81,3 +83,6 @@ public class RaycastInteraction : MonoBehaviour {
 	}
 }
 
+
+
+}

@@ -1,6 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+namespace ON{
 
 public class Interactable_ChooseColor : Interactable
 {
@@ -20,5 +22,8 @@ public class Interactable_ChooseColor : Interactable
                 Debug.LogWarning("texture isn't set to be readable");
         }
     }
+
+}
+
 
 }

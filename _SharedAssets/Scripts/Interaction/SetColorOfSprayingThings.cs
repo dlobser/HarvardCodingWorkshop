@@ -1,6 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+namespace ON{
 
 [RequireComponent(typeof(Interactable_ChooseColor))]
 public class SetColorOfSprayingThings : MonoBehaviour
@@ -31,4 +33,7 @@ public class SetColorOfSprayingThings : MonoBehaviour
         module.startColor = chooseColor.color;
         material.color = chooseColor.color;
     }
+}
+
+
 }

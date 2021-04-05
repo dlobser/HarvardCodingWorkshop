@@ -1,7 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+
+namespace ON{
 
 
 public class VR_Controller : MonoBehaviour
@@ -58,4 +60,7 @@ public class VR_Controller : MonoBehaviour
         speed = Mathf.Lerp(speed, Vector3.Distance(prev, this.transform.position), .6f);
         prev = this.transform.position;
     }
+}
+
+
 }

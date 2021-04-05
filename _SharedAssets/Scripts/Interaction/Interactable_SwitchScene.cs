@@ -1,7 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+namespace ON{
 
 public class Interactable_SwitchScene : Interactable
 {
@@ -21,4 +23,7 @@ public class Interactable_SwitchScene : Interactable
 	{
         SceneManager.LoadScene(scene);
 	}
+}
+
+
 }

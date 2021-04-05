@@ -1,6 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+namespace ON{
 
 public class Interactable_Reticle : Interactable
 {
@@ -39,5 +41,8 @@ public class Interactable_Reticle : Interactable
                 Destroy(thisReticle);
         }
 	}
+
+}
+
 
 }

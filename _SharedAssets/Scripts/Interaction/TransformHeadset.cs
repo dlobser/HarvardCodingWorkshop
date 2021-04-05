@@ -1,6 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+namespace ON{
 
 public class TransformHeadset : MonoBehaviour
 {
@@ -34,4 +36,7 @@ public class TransformHeadset : MonoBehaviour
             this.transform.localPosition = new Vector3(this.transform.localPosition.x, 0, this.transform.localPosition.z);
         }
     }
+}
+
+
 }

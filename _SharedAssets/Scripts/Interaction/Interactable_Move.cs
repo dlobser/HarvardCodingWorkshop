@@ -1,6 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+namespace ON{
 
 public class Interactable_Move : Interactable
 {
@@ -10,4 +12,7 @@ public class Interactable_Move : Interactable
     {
         this.transform.Translate(Random.insideUnitSphere*amount);
     }
+}
+
+
 }
